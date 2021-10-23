@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>KSI</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="background">
+    <div class="keys">
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+      </div>
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
+      </div>
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+      </div>
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+      </div>
+      <div data-key="71" class="key">
+        <kbd>G</kbd>
+      </div>
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+      </div>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+      </div>
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+      </div>
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+      </div>
+    </div>
+
+    <audio data-key="65" src="sounds/ksi.mp3">a</audio>
+    <audio data-key="83" src="sounds/snap.mp3"></audio>
+    <audio data-key="68" src="sounds/chicken.mp3"></audio>
+    <audio data-key="70" src="sounds/forehead.mp3"></audio>
+    <audio data-key="71" src="sounds/goal.mp3"></audio>
+    <audio data-key="72" src="sounds/wrong.mp3"></audio>
+    <audio data-key="74" src="sounds/mad.mp3"></audio>
+    <audio data-key="75" src="sounds/piss.mp3"></audio>
+    <audio data-key="76" src="sounds/tits.mp3"></audio>
+
+    <div>
+      <p>
+        Made by
+        <a href="https://www.github.com/shobhit-sirohi" target="_blank"
+          >Shobhit</a
+        >
+      </p>
+    </div>
+    <script>
+      function playSound(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+        if (!audio) return;
+        audio.currentTime = 0;
+        audio.play();
+        key.classList.add("playing");
+      }
+
+      function removeTransition(e) {
+        if (e.propertyName !== "transform") return;
+        this.classList.remove("playing");
+      }
+      const keys = document.querySelectorAll(".key");
+      keys.forEach((key) =>
+        key.addEventListener("transitionend", removeTransition)
+      );
+      window.addEventListener("keydown", playSound);
+    </script>
+  </body>
+</html>

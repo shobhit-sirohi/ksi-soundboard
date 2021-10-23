@@ -1,0 +1,49 @@
+body {
+  background-image: url("./images/ksi.png");
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.keys {
+  display: flex;
+  height: 93vh;
+  justify-content: center;
+  align-items: center;
+}
+.key {
+  transition: 0.07s;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: yellow;
+  border-radius: 5px;
+  background-color: yellow;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  padding: 5px;
+}
+kbd {
+  font-size: xxx-large;
+  color: black;
+  font-weight: 700;
+}
+.playing {
+  transform: scale(1.1);
+  border-color: black;
+}
+p,
+a {
+  font-weight: 500;
+  text-align: center;
+  color: black;
+  font-family: "Roboto";
+}
+a:hover {
+  color: white;
+}
